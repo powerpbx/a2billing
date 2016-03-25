@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `cc_agent` (
   `company` varchar(50) collate utf8_bin default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_agent`
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `cc_agent_commission` (
   `description` mediumtext collate utf8_bin,
   `id_agent` int(11) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_agent_commission`
@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `cc_agent_signup` (
   `id_group` int(11) NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_agent_signup`
@@ -143,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `cc_agent_tariffgroup` (
   `id_agent` bigint(20) NOT NULL,
   `id_tariffgroup` int(11) NOT NULL,
   PRIMARY KEY  (`id_agent`,`id_tariffgroup`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cc_agent_tariffgroup`
@@ -171,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `cc_alarm` (
   `datelastrun` timestamp NOT NULL default '0000-00-00 00:00:00',
   `emailreport` varchar(50) collate utf8_bin default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_alarm`
@@ -190,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `cc_alarm_report` (
   `calculatedvalue` float NOT NULL,
   `daterun` timestamp NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_alarm_report`
@@ -209,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `cc_autorefill_report` (
   `totalcardperform` int(11) default NULL,
   `totalcredit` decimal(15,5) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_autorefill_report`
@@ -229,7 +229,7 @@ CREATE TABLE IF NOT EXISTS `cc_backup` (
   `creationdate` timestamp NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `cons_cc_backup_name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_backup`
@@ -248,7 +248,7 @@ CREATE TABLE IF NOT EXISTS `cc_billing_customer` (
   `date` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `id_invoice` bigint(20) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_billing_customer`
@@ -289,7 +289,7 @@ CREATE TABLE IF NOT EXISTS `cc_call` (
   KEY `starttime` (`starttime`),
   KEY `calledstation` (`calledstation`),
   KEY `terminatecauseid` (`terminatecauseid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_call`
@@ -329,7 +329,7 @@ CREATE TABLE IF NOT EXISTS `cc_callback_spool` (
   `id_server_group` int(11) default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `cc_callback_spool_uniqueid_key` (`uniqueid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_callback_spool`
@@ -349,7 +349,7 @@ CREATE TABLE IF NOT EXISTS `cc_callerid` (
   `activated` char(1) collate utf8_bin NOT NULL default 't',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `cons_cc_callerid_cid` (`cid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_callerid`
@@ -398,7 +398,7 @@ CREATE TABLE IF NOT EXISTS `cc_call_archive` (
   KEY `starttime` (`starttime`),
   KEY `terminatecause` (`terminatecause`),
   KEY `calledstation` (`calledstation`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_call_archive`
@@ -437,7 +437,7 @@ CREATE TABLE IF NOT EXISTS `cc_campaign` (
   `id_campaign_config` int(11) NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `cons_cc_campaign_campaign_name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_campaign`
@@ -454,7 +454,7 @@ CREATE TABLE IF NOT EXISTS `cc_campaignconf_cardgroup` (
   `id_campaign_config` int(11) NOT NULL,
   `id_card_group` int(11) NOT NULL,
   PRIMARY KEY  (`id_campaign_config`,`id_card_group`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cc_campaignconf_cardgroup`
@@ -474,7 +474,7 @@ CREATE TABLE IF NOT EXISTS `cc_campaign_config` (
   `context` varchar(40) collate utf8_bin NOT NULL,
   `description` mediumtext collate utf8_bin,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_campaign_config`
@@ -491,7 +491,7 @@ CREATE TABLE IF NOT EXISTS `cc_campaign_phonebook` (
   `id_campaign` int(11) NOT NULL,
   `id_phonebook` int(11) NOT NULL,
   PRIMARY KEY  (`id_campaign`,`id_phonebook`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cc_campaign_phonebook`
@@ -511,7 +511,7 @@ CREATE TABLE IF NOT EXISTS `cc_campaign_phonestatus` (
   `status` int(11) NOT NULL default '0',
   `lastuse` timestamp NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id_phonenumber`,`id_campaign`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cc_campaign_phonestatus`
@@ -595,7 +595,7 @@ CREATE TABLE IF NOT EXISTS `cc_card` (
   UNIQUE KEY `cons_cc_card_useralias` (`useralias`),
   KEY `creationdate` (`creationdate`),
   KEY `username` (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Triggers `cc_card`
@@ -638,7 +638,7 @@ CREATE TABLE IF NOT EXISTS `cc_cardgroup_service` (
   `id_card_group` int(11) NOT NULL,
   `id_service` int(11) NOT NULL,
   PRIMARY KEY  (`id_card_group`,`id_service`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cc_cardgroup_service`
@@ -719,7 +719,7 @@ CREATE TABLE IF NOT EXISTS `cc_card_archive` (
   PRIMARY KEY  (`id`),
   KEY `creationdate` (`creationdate`),
   KEY `username` (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cc_card_archive`
@@ -739,7 +739,7 @@ CREATE TABLE IF NOT EXISTS `cc_card_group` (
   `users_perms` int(11) NOT NULL default '0',
   `id_agent` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `cc_card_group`
@@ -759,7 +759,7 @@ CREATE TABLE IF NOT EXISTS `cc_card_history` (
   `datecreated` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `description` text collate utf8_bin,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_card_history`
@@ -782,7 +782,7 @@ CREATE TABLE IF NOT EXISTS `cc_card_package_offer` (
   KEY `ind_cc_card_package_offer_id_card` (`id_cc_card`),
   KEY `ind_cc_card_package_offer_id_package_offer` (`id_cc_package_offer`),
   KEY `ind_cc_card_package_offer_date_consumption` (`date_consumption`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_card_package_offer`
@@ -801,7 +801,7 @@ CREATE TABLE IF NOT EXISTS `cc_card_seria` (
   `description` mediumtext collate utf8_bin,
   `value` bigint(20) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_card_seria`
@@ -823,7 +823,7 @@ CREATE TABLE IF NOT EXISTS `cc_card_subscription` (
   `product_id` varchar(100) collate utf8_bin default NULL,
   `product_name` varchar(100) collate utf8_bin default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_card_subscription`
@@ -854,7 +854,7 @@ CREATE TABLE IF NOT EXISTS `cc_charge` (
   PRIMARY KEY  (`id`),
   KEY `ind_cc_charge_id_cc_card` (`id_cc_card`),
   KEY `ind_cc_charge_creationdate` (`creationdate`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_charge`
@@ -877,7 +877,7 @@ CREATE TABLE IF NOT EXISTS `cc_config` (
   `config_listvalues` varchar(100) collate utf8_bin default NULL,
   `config_group_title` varchar(64) collate utf8_bin NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=257 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=257 ;
 
 --
 -- Dumping data for table `cc_config`
@@ -1140,7 +1140,7 @@ CREATE TABLE IF NOT EXISTS `cc_configuration` (
   `use_function` varchar(255) collate utf8_bin default NULL,
   `set_function` varchar(255) collate utf8_bin default NULL,
   PRIMARY KEY  (`configuration_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=26 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=26 ;
 
 --
 -- Dumping data for table `cc_configuration`
@@ -1184,7 +1184,7 @@ CREATE TABLE IF NOT EXISTS `cc_config_group` (
   `group_description` varchar(255) collate utf8_bin NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `group_title` (`group_title`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `cc_config_group`
@@ -1217,7 +1217,7 @@ CREATE TABLE IF NOT EXISTS `cc_country` (
   `countryprefix` char(80) collate utf8_bin NOT NULL,
   `countryname` char(80) collate utf8_bin NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=256 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=256 ;
 
 --
 -- Dumping data for table `cc_country`
@@ -1495,7 +1495,7 @@ CREATE TABLE IF NOT EXISTS `cc_currencies` (
   `basecurrency` char(3) collate utf8_bin NOT NULL default 'USD',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `cons_cc_currencies_currency` (`currency`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=151 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=151 ;
 
 --
 -- Dumping data for table `cc_currencies`
@@ -1675,7 +1675,7 @@ CREATE TABLE IF NOT EXISTS `cc_did` (
   `fixrate` float NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `cons_cc_did_did` (`did`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_did`
@@ -1694,7 +1694,7 @@ CREATE TABLE IF NOT EXISTS `cc_didgroup` (
   `didgroupname` char(50) collate utf8_bin NOT NULL,
   `creationdate` timestamp NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_didgroup`
@@ -1718,7 +1718,7 @@ CREATE TABLE IF NOT EXISTS `cc_did_destination` (
   `secondusedreal` int(11) default '0',
   `voip_call` int(11) default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_did_destination`
@@ -1741,7 +1741,7 @@ CREATE TABLE IF NOT EXISTS `cc_did_use` (
   `month_payed` int(11) default '0',
   `reminded` tinyint(4) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_did_use`
@@ -1776,7 +1776,7 @@ CREATE TABLE IF NOT EXISTS `cc_ecommerce_product` (
   `sip_friend` int(11) default '0',
   `iax_friend` int(11) default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_ecommerce_product`
@@ -1807,7 +1807,7 @@ CREATE TABLE IF NOT EXISTS `cc_epayment_log` (
   `item_type` varchar(30) collate utf8_bin default NULL,
   `item_id` bigint(20) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_epayment_log`
@@ -1836,7 +1836,7 @@ CREATE TABLE IF NOT EXISTS `cc_epayment_log_agent` (
   `currency` varchar(4) collate utf8_bin default NULL,
   `transaction_detail` longtext collate utf8_bin,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_epayment_log_agent`
@@ -1895,7 +1895,7 @@ CREATE TABLE IF NOT EXISTS `cc_iax_buddies` (
   KEY `host` (`host`),
   KEY `ipaddr` (`ipaddr`),
   KEY `port` (`port`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_iax_buddies`
@@ -1919,7 +1919,7 @@ CREATE TABLE IF NOT EXISTS `cc_invoice` (
   `description` mediumtext collate utf8_bin NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `reference` (`reference`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_invoice`
@@ -1938,7 +1938,7 @@ CREATE TABLE IF NOT EXISTS `cc_invoice_conf` (
   `value` varchar(50) collate utf8_bin NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `key_val` (`key_val`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `cc_invoice_conf`
@@ -1971,7 +1971,7 @@ CREATE TABLE IF NOT EXISTS `cc_invoice_item` (
   `id_ext` bigint(20) default NULL,
   `type_ext` varchar(10) collate utf8_bin default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_invoice_item`
@@ -1988,7 +1988,7 @@ CREATE TABLE IF NOT EXISTS `cc_invoice_payment` (
   `id_invoice` bigint(20) NOT NULL,
   `id_payment` bigint(20) NOT NULL,
   PRIMARY KEY  (`id_invoice`,`id_payment`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cc_invoice_payment`
@@ -2008,7 +2008,7 @@ CREATE TABLE IF NOT EXISTS `cc_iso639` (
   `charset` char(16) collate utf8_bin NOT NULL default 'ISO-8859-1',
   PRIMARY KEY  (`code`),
   UNIQUE KEY `iso639_name_key` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cc_iso639`
@@ -2171,7 +2171,7 @@ CREATE TABLE IF NOT EXISTS `cc_logpayment` (
   `payment_type` tinyint(4) NOT NULL default '0',
   `added_commission` tinyint(4) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_logpayment`
@@ -2194,7 +2194,7 @@ CREATE TABLE IF NOT EXISTS `cc_logpayment_agent` (
   `added_refill` tinyint(4) NOT NULL default '0',
   `payment_type` tinyint(4) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_logpayment_agent`
@@ -2216,7 +2216,7 @@ CREATE TABLE IF NOT EXISTS `cc_logrefill` (
   `refill_type` tinyint(4) NOT NULL default '0',
   `added_invoice` tinyint(4) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_logrefill`
@@ -2237,7 +2237,7 @@ CREATE TABLE IF NOT EXISTS `cc_logrefill_agent` (
   `description` mediumtext collate utf8_bin,
   `refill_type` tinyint(4) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_logrefill_agent`
@@ -2258,7 +2258,7 @@ CREATE TABLE IF NOT EXISTS `cc_notification` (
   `from_type` tinyint(4) NOT NULL,
   `from_id` bigint(20) default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_notification`
@@ -2276,7 +2276,7 @@ CREATE TABLE IF NOT EXISTS `cc_notification_admin` (
   `id_admin` int(11) NOT NULL,
   `viewed` tinyint(4) NOT NULL default '0',
   PRIMARY KEY  (`id_notification`,`id_admin`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cc_notification_admin`
@@ -2294,7 +2294,7 @@ CREATE TABLE IF NOT EXISTS `cc_outbound_cid_group` (
   `creationdate` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `group_name` varchar(70) collate utf8_bin NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_outbound_cid_group`
@@ -2314,7 +2314,7 @@ CREATE TABLE IF NOT EXISTS `cc_outbound_cid_list` (
   `activated` int(11) NOT NULL default '0',
   `creationdate` timestamp NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_outbound_cid_list`
@@ -2332,7 +2332,7 @@ CREATE TABLE IF NOT EXISTS `cc_package_group` (
   `name` char(30) collate utf8_bin NOT NULL,
   `description` mediumtext collate utf8_bin,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_package_group`
@@ -2354,7 +2354,7 @@ CREATE TABLE IF NOT EXISTS `cc_package_offer` (
   `startday` int(11) NOT NULL,
   `freetimetocall` int(11) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_package_offer`
@@ -2371,7 +2371,7 @@ CREATE TABLE IF NOT EXISTS `cc_package_rate` (
   `package_id` int(11) NOT NULL,
   `rate_id` int(11) NOT NULL,
   PRIMARY KEY  (`package_id`,`rate_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cc_package_rate`
@@ -2388,7 +2388,7 @@ CREATE TABLE IF NOT EXISTS `cc_packgroup_package` (
   `packagegroup_id` int(11) NOT NULL,
   `package_id` int(11) NOT NULL,
   PRIMARY KEY  (`packagegroup_id`,`package_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cc_packgroup_package`
@@ -2422,7 +2422,7 @@ CREATE TABLE IF NOT EXISTS `cc_payments` (
   `currency` char(3) collate utf8_bin default NULL,
   `currency_value` decimal(14,6) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_payments`
@@ -2456,7 +2456,7 @@ CREATE TABLE IF NOT EXISTS `cc_payments_agent` (
   `currency` char(3) collate utf8_bin default NULL,
   `currency_value` decimal(14,6) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_payments_agent`
@@ -2474,7 +2474,7 @@ CREATE TABLE IF NOT EXISTS `cc_payments_status` (
   `status_id` int(11) NOT NULL,
   `status_name` varchar(200) collate utf8_bin NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `cc_payments_status`
@@ -2500,7 +2500,7 @@ CREATE TABLE IF NOT EXISTS `cc_payment_methods` (
   `payment_method` char(100) collate utf8_bin NOT NULL,
   `payment_filename` char(200) collate utf8_bin NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `cc_payment_methods`
@@ -2549,7 +2549,7 @@ CREATE TABLE IF NOT EXISTS `cc_paypal` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `txn_id` (`txn_id`),
   KEY `txn_id_2` (`txn_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_paypal`
@@ -2568,7 +2568,7 @@ CREATE TABLE IF NOT EXISTS `cc_phonebook` (
   `description` mediumtext collate utf8_bin,
   `id_card` bigint(20) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_phonebook`
@@ -2591,7 +2591,7 @@ CREATE TABLE IF NOT EXISTS `cc_phonenumber` (
   `info` mediumtext collate utf8_bin,
   `amount` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_phonenumber`
@@ -2609,7 +2609,7 @@ CREATE TABLE IF NOT EXISTS `cc_prefix` (
   `destination` varchar(60) collate utf8_bin NOT NULL,
   PRIMARY KEY  (`prefix`),
   KEY `destination` (`destination`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=998795791 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=998795791 ;
 
 --
 -- Dumping data for table `cc_prefix`
@@ -7521,7 +7521,7 @@ CREATE TABLE IF NOT EXISTS `cc_provider` (
   `description` mediumtext collate utf8_bin,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `cons_cc_provider_provider_name` (`provider_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_provider`
@@ -7578,7 +7578,7 @@ CREATE TABLE IF NOT EXISTS `cc_ratecard` (
   `destination` int(11) default '0',
   PRIMARY KEY  (`id`),
   KEY `ind_cc_ratecard_dialprefix` (`dialprefix`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Triggers `cc_ratecard`
@@ -7621,7 +7621,7 @@ CREATE TABLE IF NOT EXISTS `cc_receipt` (
   `description` mediumtext collate utf8_bin NOT NULL,
   `status` tinyint(4) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_receipt`
@@ -7643,7 +7643,7 @@ CREATE TABLE IF NOT EXISTS `cc_receipt_item` (
   `id_ext` bigint(20) default NULL,
   `type_ext` varchar(10) collate utf8_bin default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_receipt_item`
@@ -7661,7 +7661,7 @@ CREATE TABLE IF NOT EXISTS `cc_restricted_phonenumber` (
   `number` varchar(50) collate utf8_bin NOT NULL,
   `id_card` bigint(20) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_restricted_phonenumber`
@@ -7679,7 +7679,7 @@ CREATE TABLE IF NOT EXISTS `cc_server_group` (
   `name` varchar(60) collate utf8_bin default NULL,
   `description` mediumtext collate utf8_bin,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `cc_server_group`
@@ -7702,7 +7702,7 @@ CREATE TABLE IF NOT EXISTS `cc_server_manager` (
   `manager_secret` varchar(50) collate utf8_bin default NULL,
   `lasttime_used` timestamp NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `cc_server_manager`
@@ -7736,7 +7736,7 @@ CREATE TABLE IF NOT EXISTS `cc_service` (
   `dialplan` int(11) default '0',
   `use_group` tinyint(4) default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_service`
@@ -7756,7 +7756,7 @@ CREATE TABLE IF NOT EXISTS `cc_service_report` (
   `totalcardperform` int(11) default NULL,
   `totalcredit` float default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_service_report`
@@ -7818,7 +7818,7 @@ CREATE TABLE IF NOT EXISTS `cc_sip_buddies` (
   KEY `host` (`host`),
   KEY `ipaddr` (`ipaddr`),
   KEY `port` (`port`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_sip_buddies`
@@ -7887,7 +7887,7 @@ CREATE TABLE IF NOT EXISTS `cc_speeddial` (
   `creationdate` timestamp NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `cons_cc_speeddial_id_cc_card_speeddial` (`id_cc_card`,`speeddial`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_speeddial`
@@ -7906,7 +7906,7 @@ CREATE TABLE IF NOT EXISTS `cc_status_log` (
   `id_cc_card` bigint(20) NOT NULL,
   `updated_date` timestamp NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_status_log`
@@ -7932,7 +7932,7 @@ CREATE TABLE IF NOT EXISTS `cc_subscription_fee` (
   `totalcredit` float NOT NULL default '0',
   `totalcardperform` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_subscription_fee`
@@ -7949,7 +7949,7 @@ CREATE TABLE IF NOT EXISTS `cc_support` (
   `id` smallint(5) NOT NULL auto_increment,
   `name` varchar(50) collate utf8_bin NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `cc_support`
@@ -7969,7 +7969,7 @@ CREATE TABLE IF NOT EXISTS `cc_support_component` (
   `name` varchar(50) collate utf8_bin NOT NULL,
   `activated` smallint(6) NOT NULL default '1',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `cc_support_component`
@@ -7995,7 +7995,7 @@ CREATE TABLE IF NOT EXISTS `cc_system_log` (
   `ipaddress` varchar(255) collate utf8_bin default NULL,
   `creationdate` timestamp NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
 
 -- --------------------------------------------------------
 
@@ -8013,7 +8013,7 @@ CREATE TABLE IF NOT EXISTS `cc_tariffgroup` (
   `removeinterprefix` int(11) NOT NULL default '0',
   `id_cc_package_offer` bigint(20) NOT NULL default '-1',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_tariffgroup`
@@ -8030,7 +8030,7 @@ CREATE TABLE IF NOT EXISTS `cc_tariffgroup_plan` (
   `idtariffgroup` int(11) NOT NULL,
   `idtariffplan` int(11) NOT NULL,
   PRIMARY KEY  (`idtariffgroup`,`idtariffplan`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cc_tariffgroup_plan`
@@ -8061,7 +8061,7 @@ CREATE TABLE IF NOT EXISTS `cc_tariffplan` (
   `calleridprefix` char(30) collate utf8_bin NOT NULL default 'all',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `cons_cc_tariffplan_iduser_tariffname` (`iduser`,`tariffname`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_tariffplan`
@@ -8084,7 +8084,7 @@ CREATE TABLE IF NOT EXISTS `cc_templatemail` (
   `messagetext` longtext collate utf8_bin,
   `messagehtml` longtext collate utf8_bin,
   UNIQUE KEY `cons_cc_templatemail_id_language` (`mailtype`,`id_language`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `cc_templatemail`
@@ -8125,7 +8125,7 @@ CREATE TABLE IF NOT EXISTS `cc_ticket` (
   `viewed_agent` tinyint(4) NOT NULL default '1',
   `viewed_admin` tinyint(4) NOT NULL default '1',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_ticket`
@@ -8149,7 +8149,7 @@ CREATE TABLE IF NOT EXISTS `cc_ticket_comment` (
   `viewed_agent` tinyint(4) NOT NULL default '1',
   `viewed_admin` tinyint(4) NOT NULL default '1',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_ticket_comment`
@@ -8168,7 +8168,7 @@ CREATE TABLE IF NOT EXISTS `cc_timezone` (
   `gmttime` varchar(255) collate utf8_bin default NULL,
   `gmtoffset` bigint(20) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=76 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=76 ;
 
 --
 -- Dumping data for table `cc_timezone`
@@ -8275,7 +8275,7 @@ CREATE TABLE IF NOT EXISTS `cc_trunk` (
   `status` int(11) default '1',
   `if_max_use` int(11) default '0',
   PRIMARY KEY  (`id_trunk`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `cc_trunk`
@@ -8307,7 +8307,7 @@ CREATE TABLE IF NOT EXISTS `cc_ui_authen` (
   PRIMARY KEY  (`userid`),
   UNIQUE KEY `cons_cc_ui_authen_login` (`login`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `cc_ui_authen`
@@ -8335,7 +8335,7 @@ CREATE TABLE IF NOT EXISTS `cc_voucher` (
   `currency` char(3) collate utf8_bin default 'USD',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `cons_cc_voucher_voucher` (`voucher`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `cc_voucher`

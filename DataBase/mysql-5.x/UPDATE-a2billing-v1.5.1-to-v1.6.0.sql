@@ -98,7 +98,7 @@ CREATE TABLE cc_monitor (
 	result_type TINYINT NOT NULL DEFAULT '1',
 	enable TINYINT NOT NULL DEFAULT '1',
 	PRIMARY KEY ( id )
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 INSERT INTO cc_monitor (label, dial_code, description, text_intro, query_type, query, result_type, enable) VALUES
 ('TotalCall', 2, 'To say the total amount of calls', 'The total amount of calls on your system is', 1, 'select count(*) from cc_call;', 3, 1),

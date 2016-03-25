@@ -59,7 +59,7 @@ CREATE TABLE cc_remittance_request (
 	type TINYINT NOT NULL,
 	date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
 	status TINYINT NOT NULL DEFAULT '0'
-) ENGINE = MYISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
 -- notifiction link to the record

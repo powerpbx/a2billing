@@ -145,7 +145,7 @@ ALTER TABLE cc_sip_buddies
 -- ADD A2Billing Version into the Database 
 CREATE TABLE cc_version (
     version varchar(30) NOT NULL
-) ENGINE = MYISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 INSERT INTO cc_version (version) VALUES ('1.4.3');
 

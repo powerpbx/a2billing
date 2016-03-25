@@ -39,7 +39,7 @@ CREATE TABLE cc_message_agent (
     logo TINYINT NOT NULL DEFAULT '1',
     order_display INT NOT NULL ,
     PRIMARY KEY ( id )
-) ENGINE = MYISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
 INSERT INTO cc_config ( config_title, config_key, config_value, config_description, config_valuetype, config_listvalues, config_group_title) VALUES( 'Auto Create Card', 'cid_auto_create_card', '0', 'if the callerID is captured on a2billing, this option will create automatically a new card and add the callerID to it.', 1, 'yes,no', 'agi-conf1');

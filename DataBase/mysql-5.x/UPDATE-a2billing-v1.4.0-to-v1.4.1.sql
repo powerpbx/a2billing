@@ -61,7 +61,7 @@ CREATE TABLE cc_subscription_signup (
 	description MEDIUMTEXT CHARACTER SET utf8 COLLATE utf8_bin NULL ,
 	enable TINYINT NOT NULL DEFAULT '1',
 	PRIMARY KEY ( id )
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 
 DELETE FROM cc_config WHERE config_key = 'currency_cents_association';
