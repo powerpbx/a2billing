@@ -121,10 +121,20 @@ if ($task == 'upload') {
 
     $nb_imported = 0;
     $nb_to_import = 0;
+    $transaction_count = 0;
     $DBHandle = DbConnect();
 
     while (!feof($fp)) {
-
+        
+        // Only commit every 1000 transactions to increase speed on database cluster.
+        if ($transaction_count == 0 || $transaction_count == 1000){
+          $DBHandle->StartTrans();
+          if ($transaction_count == 1000){
+            $transaction_count = 0;
+          }
+        }
+        $transaction_count++; 
+        
         //if ($nb_imported==1000) break;
         $ligneoriginal = fgets($fp, 4096); /* On se dplace d'une ligne */
         $ligneoriginal = trim($ligneoriginal);
@@ -211,8 +221,14 @@ if ($task == 'upload') {
             }
             $TT_QUERY = '';
         }
+        // Complete every 1000 transactions
+        if ($transaction_count == 1000){
+          $DBHandle->CompleteTrans();
+        }
 
     } // END WHILE EOF
+    // Ensure transactions are closed
+    $DBHandle->CompleteTrans();
 
     if ($TT_QUERY != '' && strlen($TT_QUERY) > 0 && ($nb_to_import > 0)) {
         $result_query = @ $DBHandle->Execute($TT_QUERY);
