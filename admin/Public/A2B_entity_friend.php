@@ -45,6 +45,7 @@ if (! has_rights (ACX_CUSTOMER)) {
 
 $HD_Form -> setDBHandler (DbConnect());
 $HD_Form -> init();
+atmenu = 'sip';
 
 /********************************* BATCH UPDATE ***********************************/
 getpost_ifset(array('upd_callerid', 'upd_context', 'batchupdate', 'check', 'type', 'mode', 'atmenu'));
