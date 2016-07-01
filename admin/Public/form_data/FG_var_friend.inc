@@ -47,7 +47,8 @@ getpost_ifset(array('defaultuser', 'subscribemwi', 'vmexten', 'cid_number', 'cal
 if ($atmenu=='sip') {
 	$HD_Form = new FormHandler("cc_sip_buddies", gettext("SIP Config"));
 } else {
-	$HD_Form = new FormHandler("cc_iax_buddies", gettext("IAX Config"));
+	//$HD_Form = new FormHandler("cc_iax_buddies", gettext("IAX Config"));
+	$HD_Form = new FormHandler("cc_sip_buddies", gettext("SIP Config"));
 }
 
 
@@ -74,7 +75,8 @@ $HD_Form ->FG_LIST_ADDING_BUTTON_LINK1 = "A2B_entity_friend.php?form_action=ask-
 if ($atmenu=='sip') {
 	$HD_Form ->FG_LIST_ADDING_BUTTON_ALT1 = $HD_Form ->FG_LIST_ADDING_BUTTON_MSG1 = gettext("Add SIP Config");
 } else {
-	$HD_Form ->FG_LIST_ADDING_BUTTON_ALT1 = $HD_Form ->FG_LIST_ADDING_BUTTON_MSG1 = gettext("Add IAX Config");
+	//$HD_Form ->FG_LIST_ADDING_BUTTON_ALT1 = $HD_Form ->FG_LIST_ADDING_BUTTON_MSG1 = gettext("Add IAX Config");
+	$HD_Form ->FG_LIST_ADDING_BUTTON_ALT1 = $HD_Form ->FG_LIST_ADDING_BUTTON_MSG1 = gettext("Add SIP Config");
 }
 $HD_Form ->FG_LIST_ADDING_BUTTON_IMG1 = Images_Path ."/telephone_add.png" ;
 
