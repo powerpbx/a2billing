@@ -47,7 +47,6 @@ getpost_ifset(array('defaultuser', 'subscribemwi', 'vmexten', 'cid_number', 'cal
 if ($atmenu=='sip') {
 	$HD_Form = new FormHandler("cc_sip_buddies", gettext("SIP Config"));
 } else {
-	//$HD_Form = new FormHandler("cc_iax_buddies", gettext("IAX Config"));
 	$HD_Form = new FormHandler("cc_sip_buddies", gettext("SIP Config"));
 }
 
