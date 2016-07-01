@@ -66,8 +66,8 @@ $HD_Form -> AddViewElement(gettext("ACCOUNTCODE"), "accountcode", "12%", "center
 $HD_Form -> AddViewElement(gettext("SECRET"), "secret", "12%", "center", "sort");
 $HD_Form -> AddViewElement(gettext("CALLERID"), "callerid", "15%", "center", "sort");
 $HD_Form -> AddViewElement(gettext("CONTEXT"), "context", "10%", "center", "sort");
-$HD_Form -> AddViewElement(gettext("DEFAULTIP"), "defaultip", "10%", "center", "sort");
-
+//$HD_Form -> AddViewElement(gettext("DEFAULTIP"), "defaultip", "10%", "center", "sort");
+$HD_Form -> AddViewElement(gettext("HOST"), "host", "10%", "center", "sort");
 
 $HD_Form ->FG_LIST_ADDING_BUTTON1 = true;
 $HD_Form ->FG_LIST_ADDING_BUTTON_LINK1 = "A2B_entity_friend.php?form_action=ask-add&atmenu=$atmenu&section=".$_SESSION["menu_section"];
@@ -82,7 +82,7 @@ $HD_Form ->FG_LIST_ADDING_BUTTON_IMG1 = Images_Path ."/telephone_add.png" ;
 
 
 
-$HD_Form -> FieldViewElement ('id_cc_card, username, accountcode, secret, callerid, context, defaultip');
+$HD_Form -> FieldViewElement ('id_cc_card, username, accountcode, secret, callerid, context, host');
 
 
 $HD_Form -> CV_NO_FIELDS  = gettext("THERE IS NO ".strtoupper($HD_Form->FG_INSTANCE_NAME)." CREATED!");
