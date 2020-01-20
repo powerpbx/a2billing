@@ -124,6 +124,7 @@ if ($task == 'upload') {
     $DBHandle = DbConnect();
 
     while (!feof($fp)) {
+
         //if ($nb_imported==1000) break;
         $ligneoriginal = fgets($fp, 4096); /* On se dplace d'une ligne */
         $ligneoriginal = trim($ligneoriginal);
@@ -213,7 +214,7 @@ if ($task == 'upload') {
         // Complete every 1000 transactions
 
     } // END WHILE EOF
-    
+
     if ($TT_QUERY != '' && strlen($TT_QUERY) > 0 && ($nb_to_import > 0)) {
         $result_query = @ $DBHandle->Execute($TT_QUERY);
         if ($result_query)
